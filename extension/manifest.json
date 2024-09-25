@@ -1,0 +1,23 @@
+{
+  "action": {
+    "default_popup": "html/popup.html",
+    "default_title": "YouTube-VJ"
+  },
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "js": ["js/script.js"],
+      "matches": [
+        "https://www.youtube.com/*",
+        "http://localhost/youtube-vj/*"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "description": "",
+  "manifest_version": 3,
+  "name": "YouTube-VJ",
+  "options_page": "html/popup.html",
+  "permissions": ["storage"],
+  "version": "0.1"
+}
