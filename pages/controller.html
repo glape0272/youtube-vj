@@ -112,7 +112,12 @@
         </div>
       </fieldset>
       <fieldset class="crossfader" style="padding: 0">
-        <legend onclick="switchVideo()">Crossfader</legend>
+        <legend
+          onclick="switchVideo()"
+          oncontextmenu="setSwitchingDuration();return false"
+        >
+          Crossfader
+        </legend>
         <div class="fader-container" style="width: 100%">
           <input
             type="range"

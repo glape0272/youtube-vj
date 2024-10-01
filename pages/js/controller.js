@@ -80,18 +80,31 @@ function changeVideo(text) {
   }
 }
 
+var switchingDuration = 1000;
 function switchVideo() {
+  const intervalTime = 20;
+  const croddFaderRange = 2;
   const crossFader = document.querySelector(".crossfader input");
-  const dir = -Math.sign(crossFader.value);
   var val = parseFloat(crossFader.value);
+
+  const dir = -Math.sign(val);
+  const switchingVal =
+    dir * (intervalTime / switchingDuration) * croddFaderRange;
+
   const interval = setInterval(() => {
-    val += dir / 50;
+    val += switchingVal;
     crossFader.value = val;
     calcOpacity();
     if (Math.abs(val) >= 1) {
       clearInterval(interval);
     }
-  }, 10);
+  }, intervalTime);
+}
+
+function setSwitchingDuration() {
+  const input = prompt("Switching Duration (ms)", switchingDuration);
+  console.log(input);
+  switchingDuration = parseFloat(input);
 }
 
 function setLSpeed(val) {
